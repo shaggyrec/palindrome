@@ -2,7 +2,7 @@
 class Palindrome {
     private $string;
     /**
-		@param string $string
+    * @param string $string
     */
     function __construct($string){
         if(empty($string)){
@@ -12,24 +12,24 @@ class Palindrome {
         $this->string = preg_replace('/\s+/', '', $string);
     }
     /**
-		@param string $string
-		@return bool
+    *	@param string $string
+    *	@return bool
     */
     private function isPalindrome($string){
         return $string == $this->stringReverse($string);
     }
     
     /**
-		@param string $string
-		@return string
+    * 	@param string $string
+    *	@return string
     */
     private function stringReverse($string, $encoding='UTF-8'){
         return mb_convert_encoding( strrev( mb_convert_encoding($string, 'UTF-16BE', $encoding) ), $encoding, 'UTF-16LE');
     }
     
     /**
-		@param string $string
-		@return string
+    *	@param string $string
+    *	@return string
     */
     private function findSubPolindrome($string){
         $subPolindrome = mb_substr($string,0,1);
@@ -45,8 +45,8 @@ class Palindrome {
     }
     
     /**
-		@param string $string
-		@return string
+    *	@param string $string
+    *	@return string
     */
     public function result(){
         if($this->isPalindrome($this->string)){
